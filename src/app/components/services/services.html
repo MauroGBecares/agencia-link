@@ -1,0 +1,101 @@
+<section id="servicios" class="services-overview" aria-labelledby="services-title">
+  <div class="container" appReveal>
+    <div class="overview-heading">
+      <div>
+        <p class="eyebrow">Lo que hacemos</p>
+        <h2 id="services-title" class="section-title">Servicios</h2>
+      </div>
+      <p>
+        Estrategia, análisis y formación para que cada decisión comercial tenga un propósito.
+      </p>
+    </div>
+
+    <div class="service-cards">
+      @for (service of services; track service.id; let index = $index) {
+        <a class="service-card" [href]="'#' + service.id">
+          <span class="card-number">0{{ index + 1 }}</span>
+          <img [src]="service.icon" [alt]="service.iconAlt" width="86" height="86">
+          <h3>{{ service.shortTitle }}</h3>
+          <span class="card-link">
+            Conocer más
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6"/>
+            </svg>
+          </span>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<div class="service-details">
+  @for (service of services; track service.id; let index = $index) {
+    <section
+      [id]="service.id"
+      class="service-detail"
+      [class.service-detail--brand]="service.tone === 'brand'"
+      [attr.aria-labelledby]="service.id + '-title'"
+    >
+      <div class="container detail-grid" [class.detail-grid--reverse]="index % 2 === 1">
+        <div class="detail-copy" appReveal>
+          <p class="eyebrow">{{ service.kicker }}</p>
+          <h2 [id]="service.id + '-title'">{{ service.title }}</h2>
+          <p class="detail-description">{{ service.description }}</p>
+
+          <ul>
+            @for (bullet of service.bullets; track bullet) {
+              <li>{{ bullet }}</li>
+            }
+          </ul>
+
+          <div class="detail-actions">
+            @if (links.whatsapp; as whatsapp) {
+              <a class="button" [href]="whatsapp" target="_blank" rel="noopener noreferrer">
+                Escribinos por WhatsApp
+              </a>
+            } @else {
+              <button
+                class="button"
+                type="button"
+                disabled
+                title="Enlace de WhatsApp pendiente de configuración"
+              >
+                WhatsApp · próximamente
+              </button>
+            }
+
+            @if (service.showLandingAction) {
+              @if (links.auditLanding; as auditLanding) {
+                <a
+                  class="button button--ghost"
+                  [href]="auditLanding"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ver la auditoría
+                </a>
+              } @else {
+                <button
+                  class="button button--ghost"
+                  type="button"
+                  disabled
+                  title="Landing de auditoría pendiente de configuración"
+                >
+                  Landing · próximamente
+                </button>
+              }
+            }
+          </div>
+        </div>
+
+        <div class="detail-visual" aria-hidden="true" appReveal>
+          <span class="detail-number">0{{ index + 1 }}</span>
+          <div class="detail-icon">
+            <img [src]="service.icon" alt="" width="150" height="150">
+          </div>
+          <span class="detail-orbit"></span>
+        </div>
+      </div>
+    </section>
+  }
+</div>

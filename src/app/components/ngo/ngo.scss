@@ -1,0 +1,81 @@
+.ngo {
+  position: relative;
+  display: grid;
+  min-height: clamp(650px, 76vw, 820px);
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.ngo-image {
+  z-index: -3;
+  object-fit: cover;
+  object-position: center;
+}
+
+.ngo-overlay {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(0, 38, 94, 0.83), rgba(0, 79, 193, 0.45)),
+    linear-gradient(0deg, rgba(0, 25, 64, 0.22), transparent);
+}
+
+.ngo-content {
+  max-width: 900px;
+  margin-left: max(20px, calc((100vw - var(--page-width)) / 2));
+  margin-right: auto;
+}
+
+.eyebrow {
+  color: #ff7cbd;
+}
+
+h2 {
+  max-width: 860px;
+  margin: 0;
+  color: white;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5.7vw, 5.4rem);
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.ngo-content > p:not(.eyebrow) {
+  max-width: 760px;
+  margin: 30px 0 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+  line-height: 1.75;
+}
+
+.button {
+  margin-top: 38px;
+}
+
+@media (max-width: 720px) {
+  .ngo {
+    min-height: 720px;
+    place-items: end center;
+  }
+
+  .ngo-image {
+    object-position: 53% center;
+  }
+
+  .ngo-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 38, 94, 0.22),
+      rgba(0, 51, 125, 0.92) 65%,
+      rgba(0, 38, 94, 0.98)
+    );
+  }
+
+  .ngo-content {
+    margin-inline: auto;
+    padding-bottom: 75px;
+  }
+}

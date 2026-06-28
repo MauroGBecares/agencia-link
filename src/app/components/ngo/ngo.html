@@ -1,0 +1,35 @@
+<section id="ongs" class="ngo" aria-labelledby="ngo-title">
+  <img
+    class="ngo-image"
+    ngSrc="assets/images/ngo.webp"
+    alt=""
+    fill
+    priority
+    sizes="100vw"
+  >
+  <div class="ngo-overlay"></div>
+
+  <div class="container ngo-content" appReveal>
+    <p class="eyebrow">Servicio especial para ONGs</p>
+    <h2 id="ngo-title">Ayudamos a amplificar los mensajes que pueden cambiar el mundo.</h2>
+    <p>
+      ¿Sos parte de una ONG con compromiso social o medioambiental y necesitan ayuda para difundir
+      su mensaje? Escribinos: realizamos asesorías gratuitas para quienes trabajan por un futuro mejor.
+    </p>
+
+    @if (whatsapp; as whatsappUrl) {
+      <a class="button button--pink" [href]="whatsappUrl" target="_blank" rel="noopener noreferrer">
+        Contanos sobre su proyecto
+      </a>
+    } @else {
+      <button
+        class="button button--pink"
+        type="button"
+        disabled
+        title="Enlace de WhatsApp pendiente de configuración"
+      >
+        WhatsApp · próximamente
+      </button>
+    }
+  </div>
+</section>

@@ -1,0 +1,28 @@
+<section id="testimonios" class="testimonials" aria-labelledby="testimonials-title">
+  <div class="container testimonials-card" appReveal>
+    <div class="quote-mark" aria-hidden="true">“</div>
+    <p class="eyebrow">Testimonios de clientes</p>
+    <h2 id="testimonials-title" class="section-title">
+      Las mejores historias las cuentan quienes trabajaron con nosotros.
+    </h2>
+    <p class="testimonials-copy">
+      Muy pronto vas a encontrar acá experiencias reales. Mientras tanto, podés conocer más sobre
+      nuestro trabajo y nuestra comunidad en Facebook.
+    </p>
+
+    @if (facebook; as facebookUrl) {
+      <a class="button" [href]="facebookUrl" target="_blank" rel="noopener noreferrer">
+        Ver más testimonios en Facebook
+      </a>
+    } @else {
+      <button
+        class="button"
+        type="button"
+        disabled
+        title="Perfil de Facebook pendiente de configuración"
+      >
+        Facebook · próximamente
+      </button>
+    }
+  </div>
+</section>

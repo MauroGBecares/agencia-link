@@ -1,0 +1,31 @@
+<header class="site-header" [class.site-header--scrolled]="scrolled()">
+  <div class="container header-shell">
+    <a class="brand" href="#inicio" aria-label="Agencia Link, volver al inicio" (click)="closeMenu()">
+      <img src="assets/logo-link.svg" alt="Link" width="104" height="42">
+    </a>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-controls="primary-navigation"
+      [attr.aria-expanded]="menuOpen()"
+      [attr.aria-label]="menuOpen() ? 'Cerrar menú' : 'Abrir menú'"
+      (click)="toggleMenu()"
+    >
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav
+      id="primary-navigation"
+      class="navigation"
+      aria-label="Navegación principal"
+      [class.navigation--open]="menuOpen()"
+    >
+      @for (item of navigation; track item.target) {
+        <a [href]="'#' + item.target" (click)="closeMenu()">{{ item.label }}</a>
+      }
+      <a class="button header-cta" href="#contacto" (click)="closeMenu()">Hablemos</a>
+    </nav>
+  </div>
+</header>

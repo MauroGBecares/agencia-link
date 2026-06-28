@@ -1,0 +1,214 @@
+@font-face {
+  font-family: 'TT Hoves';
+  src: url('/assets/fonts/tt-hoves-regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Hoves';
+  src: url('/assets/fonts/tt-hoves-bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --color-blue: #004fc1;
+  --color-blue-dark: #00388b;
+  --color-pink: #e82e8b;
+  --color-pink-dark: #bd176c;
+  --color-sky: #eaf2ff;
+  --color-ink: #10213d;
+  --color-muted: #52627a;
+  --color-white: #ffffff;
+  --font-display: 'TT Hoves', 'Montserrat Variable', sans-serif;
+  --font-body: 'Montserrat Variable', Montserrat, Arial, sans-serif;
+  --page-width: 1200px;
+  --shadow-soft: 0 24px 70px rgba(0, 79, 193, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 104px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--color-ink);
+  background: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  width: min(calc(100% - 40px), var(--page-width));
+  margin-inline: auto;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  color: var(--color-pink-dark);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  margin: 0;
+  color: var(--color-blue);
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 4.75rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 24px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: var(--color-blue);
+  color: var(--color-white);
+  cursor: pointer;
+  font-size: 0.86rem;
+  font-weight: 750;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: var(--color-blue-dark);
+  box-shadow: 0 12px 30px rgba(0, 79, 193, 0.25);
+}
+
+.button:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #ffb7da;
+  outline-offset: 4px;
+}
+
+.button--pink {
+  background: var(--color-pink-dark);
+}
+
+.button--pink:hover:not(:disabled) {
+  background: #951052;
+  box-shadow: 0 12px 30px rgba(232, 46, 139, 0.25);
+}
+
+.button--ghost {
+  border-color: rgba(0, 79, 193, 0.25);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--color-blue);
+}
+
+.button--ghost:hover:not(:disabled) {
+  background: var(--color-white);
+}
+
+.button:disabled,
+.button[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 1000;
+  top: 12px;
+  left: 12px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--color-ink);
+  color: white;
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(calc(100% - 28px), var(--page-width));
+  }
+
+  .button {
+    min-height: 50px;
+    padding-inline: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

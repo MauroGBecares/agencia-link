@@ -1,0 +1,44 @@
+<footer id="contacto" class="footer" aria-labelledby="contact-title">
+  <div class="container footer-cta" appReveal>
+    <img src="assets/logo-link.svg" alt="Link" width="132" height="54">
+    <h2 id="contact-title">Trabajemos en equipo para llevar tu negocio al próximo nivel.</h2>
+    <p>Cuando tengas listos tus enlaces, podés activarlos desde una única configuración.</p>
+
+    <div class="contact-actions" aria-label="Canales de contacto">
+      @if (links.whatsapp; as whatsapp) {
+        <a class="button button--pink" [href]="whatsapp" target="_blank" rel="noopener noreferrer">
+          WhatsApp
+        </a>
+      } @else {
+        <button class="button button--pink" type="button" disabled title="Enlace pendiente">
+          WhatsApp · próximamente
+        </button>
+      }
+
+      @if (links.instagram; as instagram) {
+        <a class="social-link" [href]="instagram" target="_blank" rel="noopener noreferrer">
+          Instagram
+        </a>
+      } @else {
+        <button class="social-link" type="button" disabled title="Perfil pendiente">
+          Instagram · próximamente
+        </button>
+      }
+
+      @if (links.facebook; as facebook) {
+        <a class="social-link" [href]="facebook" target="_blank" rel="noopener noreferrer">
+          Facebook
+        </a>
+      } @else {
+        <button class="social-link" type="button" disabled title="Perfil pendiente">
+          Facebook · próximamente
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <span>© {{ year }} Agencia Link</span>
+    <span>Estrategia de ads y ventas</span>
+  </div>
+</footer>

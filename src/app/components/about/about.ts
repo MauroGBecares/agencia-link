@@ -1,0 +1,12 @@
+import { NgOptimizedImage } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { RevealDirective } from '../../shared/reveal.directive';
+
+@Component({
+  selector: 'app-about',
+  imports: [NgOptimizedImage, RevealDirective],
+  templateUrl: './about.html',
+  styleUrl: './about.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class AboutComponent {}
