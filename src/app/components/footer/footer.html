@@ -1,39 +1,48 @@
 <footer id="contacto" class="footer" aria-labelledby="contact-title">
   <div class="container footer-cta" appReveal>
     <img src="assets/logo-link.svg" alt="Link" width="132" height="54">
-    <h2 id="contact-title">Trabajemos en equipo para llevar tu negocio al próximo nivel.</h2>
-    <p>Cuando tengas listos tus enlaces, podés activarlos desde una única configuración.</p>
+    <h2 id="contact-title">No creemos en soluciones mágicas. Creemos en las buenas estrategias, el trabajo en equipo y las relaciones construidas con confianza. Si esa también es tu forma de ver los negocios, nos encantaría conocerte.</h2>
 
     <div class="contact-actions" aria-label="Canales de contacto">
-      @if (links.whatsapp; as whatsapp) {
-        <a class="button button--pink" [href]="whatsapp" target="_blank" rel="noopener noreferrer">
-          WhatsApp
-        </a>
-      } @else {
-        <button class="button button--pink" type="button" disabled title="Enlace pendiente">
-          WhatsApp · próximamente
-        </button>
-      }
+      <div class="social-icons" aria-label="Redes sociales">
+        @if (links.whatsapp; as whatsapp) {
+          <a
+            class="social-link"
+            [href]="whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+            title="WhatsApp"
+          >
+            <img src="assets/icons/social-whatsapp.svg" alt="" width="22" height="22" aria-hidden="true">
+          </a>
+        } @else {
+          <button
+            class="social-link social-link--pending"
+            type="button"
+            disabled
+            aria-label="WhatsApp pendiente"
+            title="WhatsApp pendiente"
+          >
+            <img src="assets/icons/social-whatsapp.svg" alt="" width="22" height="22" aria-hidden="true">
+          </button>
+        }
 
-      @if (links.instagram; as instagram) {
-        <a class="social-link" [href]="instagram" target="_blank" rel="noopener noreferrer">
-          Instagram
-        </a>
-      } @else {
-        <button class="social-link" type="button" disabled title="Perfil pendiente">
-          Instagram · próximamente
-        </button>
-      }
-
-      @if (links.facebook; as facebook) {
-        <a class="social-link" [href]="facebook" target="_blank" rel="noopener noreferrer">
-          Facebook
-        </a>
-      } @else {
-        <button class="social-link" type="button" disabled title="Perfil pendiente">
-          Facebook · próximamente
-        </button>
-      }
+        @for (social of socialLinks; track social.label) {
+          @if (social.url) {
+            <a
+              class="social-link"
+              [href]="social.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              [attr.aria-label]="social.label"
+              [title]="social.label"
+            >
+              <img [src]="social.icon" alt="" width="22" height="22" aria-hidden="true">
+            </a>
+          }
+        }
+      </div>
     </div>
   </div>
 

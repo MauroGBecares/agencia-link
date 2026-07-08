@@ -10,5 +10,5 @@ import { RevealDirective } from '../../shared/reveal.directive';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TestimonialsComponent {
-  protected readonly facebook = SITE_CONTENT.contactLinks.facebook;
+  protected readonly facebook = 'https://www.facebook.com/LinkComunicacion/reviews';
 }

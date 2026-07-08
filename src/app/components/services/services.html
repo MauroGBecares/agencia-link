@@ -2,11 +2,11 @@
   <div class="container" appReveal>
     <div class="overview-heading">
       <div>
-        <p class="eyebrow">Lo que hacemos</p>
+        <p class="eyebrow">¿Cómo te podemos ayudar?</p>
         <h2 id="services-title" class="section-title">Servicios</h2>
       </div>
       <p>
-        Estrategia, análisis y formación para que cada decisión comercial tenga un propósito.
+        No creemos en soluciones mágicas. Nuestros servicios están diseñados para ayudarte a crecer con estrategia, claridad y planificación.
       </p>
     </div>
 
@@ -41,7 +41,9 @@
           <p class="eyebrow">{{ service.kicker }}</p>
           <h2 [id]="service.id + '-title'">{{ service.title }}</h2>
           <p class="detail-description">{{ service.description }}</p>
-
+          @if(service.description2 !== null ){
+            <p class="detail-description p-desc-2">{{ service.description2 }}</p>
+          }
           <ul>
             @for (bullet of service.bullets; track bullet) {
               <li>{{ bullet }}</li>
